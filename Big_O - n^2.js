@@ -1,3 +1,5 @@
+// O(n^2)
+
 const boxes = ["a", "b", "c", "d"];
 
 function pairs(array) {

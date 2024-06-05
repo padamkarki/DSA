@@ -1,3 +1,5 @@
+// O(n)
+
 const nemo = ["nemo"];
 const everyone = ["dory", "nemo", "mory"];
 const largeArr = new Array(100000).fill("nemo");
