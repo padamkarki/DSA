@@ -8,14 +8,19 @@ const array1 = [0, 3, 4, 31];
 const array2 = [4, 6, 30];
 
 function mergeSorted(arr1, arr2) {
+  // if either of empty return other - edge case
   if (arr1.length === 0) return arr2;
   if (arr2.length === 0) return arr1;
 
+  // new empty array to fill
   const result = [];
+  // index of both arrays to loop till both arrays
   let i = 0;
   let j = 0;
 
+  // loop till one array exhaust, thats why and
   while (i < arr1.length && j < arr2.length) {
+    //if array1 element is smaller than array2's then push it to result and increase index
     if (arr1[i] < arr2[i]) {
       result.push(arr1[i]);
       i++;
@@ -25,6 +30,7 @@ function mergeSorted(arr1, arr2) {
     }
   }
 
+  // pending elements in arr1 will be added to result
   while (i < arr1.length) {
     result.push(arr1[i]);
     i++;
@@ -34,6 +40,8 @@ function mergeSorted(arr1, arr2) {
     result.push(arr2[j]);
     j++;
   }
+
+  //return the result
   console.log(result);
   return result;
 }
