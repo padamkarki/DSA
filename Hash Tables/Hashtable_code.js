@@ -39,10 +39,12 @@ class HashTables {
     return undefined;
   }
 
+  // BigO(n)
   keys() {
     const keyArr = [];
     for (let i = 0; i < this.data.length; i++) {
       if (this.data[i]) {
+        // console.log(this.data[1]);
         keyArr.push(this.data[i][0][0]);
       }
     }
