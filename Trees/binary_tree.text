@@ -1,0 +1,26 @@
+Binary Tree:
+
+* 1 root node
+* 0 or 1 or max 2 nodes
+* sub nodes are child
+
+
+Perfect Balanced Binary Tree:
+Diagram:
+
+      *            //level 1
+     *  *          //level 2
+   *  **  *        //level 3
+
+* every node has 2 node on each level
+* all level is full
+* at last level, none has any child nodes
+* therefore,
+Level 0 = 2^0 = 1
+Level 0 = 2^1 = 2
+Level 0 = 2^2 = 4
+Level 0 = 2^3 = 8
+
+Therefore nodes = 2^height - 1   //eg.. in diagram, 3 levels therefor 2^3 = 8 and 8 - 1 = 7 nodes
+* Therefore log nodes = h
+* last node has half the nodes of entire perfect BT plus 1
