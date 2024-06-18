@@ -9,8 +9,8 @@ function mergeSort(arr) {
   }
 
   //midle
-  const mid = math.floor(arr.length / 2);
-  const left = arr.slice(0, mid); // 0 = start, mid = end, end not included in slice
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid); // Elements from index 0 to mid (not including mid)
   const right = arr.slice(mid); // mid to end
 
   return merge(mergeSort(left), mergeSort(right)); //recursively sort both halves and merge them
@@ -33,8 +33,10 @@ function merge(left, right) {
     }
   }
 
-  result = result.concat(left.slice[leftIndex]); // Concatenate the remaining elements of the left array (if any)
-  result = result.concat(right.slice[rightIndex]); // Concatenate the remaining elements of the right array (if any)
+  result = result.concat(left.slice(leftIndex)); // Concatenate the remaining elements of the left array (if any)
+  result = result.concat(right.slice(rightIndex)); // Concatenate the remaining elements of the right array (if any)
 
   return result;
 }
+
+console.log(mergeSort(numbers));
