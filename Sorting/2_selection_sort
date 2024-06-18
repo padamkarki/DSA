@@ -1,0 +1,26 @@
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+function selectionSort(array) {
+  //Code Here
+  const len = array.length;
+  for (let i = 0; i < len; i++) {
+    //set curr index as min
+    let min = i; // on 2nd loop i = 1 and already min value is swappd to 0th index,
+    // so you will not find the same min val ahead
+    // and we again need to find new min
+
+    let temp = array[i]; // for swapping, stored in temp
+
+    for (let j = i + 1; j < len; j++) {
+      if (array[j] < array[min]) {
+        // update min, if curr lower
+        min = j;
+      }
+    }
+    array[i] = array[min];
+    array[min] = temp;
+  }
+  return array;
+}
+
+console.log(selectionSort(numbers));
