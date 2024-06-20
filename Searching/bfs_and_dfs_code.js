@@ -78,7 +78,7 @@ class BinarySearchTree {
         queue.push(currNode.right);
       }
     }
-    console.log(list);
+    console.log("BFS: ", list);
     return list;
   }
   //In recursion we have to pass arguments because we cant create var in rescursion fn, as it will be reset all time
@@ -175,11 +175,11 @@ tree.insert(15);
 tree.insert(1);
 // JSON.stringify(traverse(tree.root));
 // tree.lookup(170);
-// tree.breadthFirstSearch();
+tree.breadthFirstSearch();
 // console.log("Recursive method: ", tree.BFSRecursive([tree.root], []));
-console.log("InOrder: ", tree.DFSInOrder());
-console.log("PreOrder: ", tree.DFSPreOrder());
-console.log("PostOrder: ", tree.DFSPostOrder());
+// console.log("InOrder: ", tree.DFSInOrder());
+// console.log("PreOrder: ", tree.DFSPreOrder());
+// console.log("PostOrder: ", tree.DFSPostOrder());
 
 function traverse(node) {
   if (node === null) {
