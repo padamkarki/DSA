@@ -55,6 +55,10 @@ class BinarySearchTree {
     return false;
   }
 
+  //     9
+  //  4     20
+  //1  6  15  170
+
   breadthFirstSearch() {
     let currNode = this.root;
     let queue = [];
@@ -77,7 +81,7 @@ class BinarySearchTree {
     console.log(list);
     return list;
   }
-
+  //In recursion we have to pass arguments because we cant create var in rescursion fn, as it will be reset all time
   BFSRecursive(queue, list) {
     if (!queue.length) {
       // if queue length is zero return list
@@ -95,11 +99,71 @@ class BinarySearchTree {
     }
     return this.BFSRecursive(queue, list);
   }
+
+  DFSInOrder() {
+    return traverseInOrder(this.root, []);
+  }
+  DFSPostOrder() {
+    return traversePostOrder(this.root, []);
+  }
+  DFSPreOrder() {
+    return traversePreOrder(this.root, []);
+  }
 }
 
 //     9
 //  4     20
 //1  6  15  170
+//In order = [1,4,6,9,15,20,170]
+function traverseInOrder(node, list) {
+  // console.log(node.val);
+  if (node.left) {
+    traverseInOrder(node.left, list); // all the way to left leaf
+  }
+  list.push(node.val); // push last leaf
+  if (node.right) {
+    traverseInOrder(node.right, list); // once there is no left leaf then go to right
+  }
+  return list;
+}
+
+//     9
+//  4     20
+//1  6  15  170
+//Pre order = [9,4,1,6,20,15,170]
+function traversePreOrder(node, list) {
+  list.push(node.val); // push from root to left then go to right
+  if (node.left) {
+    traversePreOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePreOrder(node.right, list);
+  }
+  return list;
+}
+
+//     9
+//  4     20
+//1  6  15  170
+//Post order = [1,6,4,15,170,20,9]
+function traversePostOrder(node, list) {
+  if (node.left) {
+    traversePostOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePostOrder(node.right, list);
+  }
+  list.push(node.val); // at the end push val
+  return list;
+}
+
+//     9
+//  4     20
+//1  6  15  170
+//for DFS
+//In order = [1,4,6,9,15,20,170]
+//Pre order = [9,4,1,6,20,15,170]
+//Post order = [1,6,4,15,170,20,9]
 
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -111,8 +175,11 @@ tree.insert(15);
 tree.insert(1);
 // JSON.stringify(traverse(tree.root));
 // tree.lookup(170);
-tree.breadthFirstSearch();
-console.log("Recursive method: ", tree.BFSRecursive([tree.root], []));
+// tree.breadthFirstSearch();
+// console.log("Recursive method: ", tree.BFSRecursive([tree.root], []));
+console.log("InOrder: ", tree.DFSInOrder());
+console.log("PreOrder: ", tree.DFSPreOrder());
+console.log("PostOrder: ", tree.DFSPostOrder());
 
 function traverse(node) {
   if (node === null) {
