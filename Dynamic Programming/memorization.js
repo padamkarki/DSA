@@ -1,3 +1,6 @@
+// Dynamic programing means optimizing programs using cache
+// Divide and Conquer + Memorization
+
 let cache = {};
 function memorizedAddTo80(n) {
   if (n in cache) {
