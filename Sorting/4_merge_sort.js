@@ -10,7 +10,7 @@ function mergeSort(arr) {
 
   //midle
   const mid = Math.floor(arr.length / 2);
-  const left = arr.slice(0, mid); // Elements from index 0 to mid (not including mid)
+  const left = arr.slice(0, mid); // Elements from index 0 to mid (not including mid) = (mid - 1)
   const right = arr.slice(mid); // mid to end
 
   return merge(mergeSort(left), mergeSort(right)); //recursively sort both halves and merge them
@@ -24,11 +24,11 @@ function merge(left, right) {
   // while elements in both array
   while (leftIndex < left.length && rightIndex < right.length) {
     if (left[leftIndex] < right[rightIndex]) {
-      // if el in left is small , pust to left el to result
+      // if el in left is small , pust left el to result
       result.push(left[leftIndex]);
       leftIndex++; // pointer increase
     } else {
-      result.push(right[rightIndex]); // if el in left is big , pust right el to result
+      result.push(right[rightIndex]); // if el in left is big, pust right el to result
       rightIndex++; // pointer increase
     }
   }
